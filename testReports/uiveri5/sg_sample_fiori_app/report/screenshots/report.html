@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .total-summary {
+      background-color: #d9ade6;
+      padding: 10px 20px;
+    }
+
+    .total-summary span {
+      padding-right: 20px;
+    }
+
+    .suites-menu {
+      width: 100%;
+      background-color: #add8e6;
+    }
+
+    .suites-menu .name {
+      display: inline-block;
+      padding: 10px;
+    }
+
+    .suites-menu .name.failure {
+      background-color: #ff634766;
+    }
+
+    .suites-menu .name.failure.selected {
+      background-color: #ff6347;      
+    }
+
+    .suites-menu .name.selected {
+      background-color: #90c9dc;
+      font-weight: 600;
+    }
+
+    .suite {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .summary {
+      padding: 10px 20px;
+    }
+
+    .summary span {
+      padding-right: 20px;
+    }
+
+    .specs {
+      display: flex;
+    }
+
+    .specs-menu {
+      align-self: flex-start;
+      width: 500px;
+      background-color: #add8e6;
+    }
+
+    .specs-menu .selected {
+      background-color: #90c9dc;
+    }
+
+    .specs .name {
+      padding: 10px;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    .name::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 10px;
+      border-radius: 50px;
+    }
+
+    .name.passed::before, .spec.passed .summary {
+      background-color: #3cb371;
+    }
+
+    .name.failed::before, .spec.failed .summary {
+      background-color: #ff6347;
+    }
+
+    .name:hover {
+      cursor: pointer;
+    }
+
+    .spec {
+      width: 100%;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #add8e6;
+    }
+
+    .step.passed {
+      background-color: #3cb37166;
+    }
+
+    .step.failed {
+      background-color: #ff634766;
+    }
+
+    .step .content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 20px;
+    }
+
+    .step .content.reverse {
+      flex-direction: column-reverse;
+    }
+
+    code {
+      width: 90%;
+      padding: 10px;
+      background-color: #ffffff;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+
+    code.log {
+      height: 50px;
+    }
+
+    code.stack {
+      height: 300px;
+    }
+
+    img {
+      width: 300px;
+      margin: 20px 0;
+    }
+
+    .strong {
+      font-weight: 600;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .comparedImages {
+      margin-top: 16px;
+      display: flex;
+    }
+
+    .comparedImages > div:not(:first-child) {
+      margin-left: 16px;
+    }
+
+    .comparedImages > div {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+<div class="total-summary">
+  <span class="strong">Total Statistics</span>
+  <span id="specsTotal">Specs Total: 1</span>
+  <span id="specsPassed">Passed: 1</span>
+  <span id="specsFailed">Failed: 0</span>
+</div>
+<div class="suites-menu">
+  
+    <div class="name " onClick="selectSuite(0)">G -&gt; sono nel list report</div>
+  
+</div>
+
+<div class="suite hidden">
+  <div class="summary">
+    <span class="strong">Specs</span>
+    <span>Total: 1</span>
+    <span>Passed: 1</span>
+    <span>Failed: 0</span>
+    <span>Pending: 0</span>
+    <span>Disabled: 0</span>
+    <span>Duration: 39.8 sec</span>
+  </div>
+  <div class="specs">
+    <div class="specs-menu">
+      
+      <div class="name passed" onClick="selectSpec(0, 0)">W -&gt; premo sul value help del campo Carrid  T -&gt; il value help del campo Carrid e aperto SI &amp; tutti i filtri sono puliti SI</div>
+      
+    </div>
+    
+    <div class="spec passed 0 hidden">
+      <div class="summary">
+        <div class="strong">W -&gt; premo sul value help del campo Carrid  T -&gt; il value help del campo Carrid e aperto SI &amp; tutti i filtri sono puliti SI</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 3</span>
+        <span>Passed: 3</span>
+        <span>Failed: 0</span>
+        <span>Duration: 16.9 sec</span>
+        
+      </div>
+      
+      
+      <div class="step passed">
+        <p class="strong">1.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation PASSED: Expected &#39;true&#39; toBe &#39;true&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----il-value-help-del-campo-Carrid-e-aperto-SI-&amp;-tutti-i-filtri-sono-puliti-SI_0_pass_2021-10-21T18-59-13.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----il-value-help-del-campo-Carrid-e-aperto-SI-&amp;-tutti-i-filtri-sono-puliti-SI_0_pass_2021-10-21T18-59-13.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">2.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;id&quot;:{}})' and ID 'gaffu.testfiori::sap.suite.ui.generic.template.ListReport.view.ListReport::FlightSet--listReportFilter-filterItemControl_BASIC-Carrid-vhi'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_gaffu.testfiori--sap.suite.ui.generic.template.ListReport.view.ListReport--FlightSet--listReportFilter-filterItemControl_BASIC-Carrid-vhi_1_2021-10-21T18-59-14.png" target="_blank">
+            <img data-source="click_gaffu.testfiori--sap.suite.ui.generic.template.ListReport.view.ListReport--FlightSet--listReportFilter-filterItemControl_BASIC-Carrid-vhi_1_2021-10-21T18-59-14.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step passed">
+        <p class="strong">3.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation PASSED: Expected &#39;0&#39; toBe &#39;0&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----il-value-help-del-campo-Carrid-e-aperto-SI-&amp;-tutti-i-filtri-sono-puliti-SI_2_pass_2021-10-21T18-59-18.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----il-value-help-del-campo-Carrid-e-aperto-SI-&amp;-tutti-i-filtri-sono-puliti-SI_2_pass_2021-10-21T18-59-18.png"/>
+          </a>
+          
+          
+          Log: <code class="log">No elements found using by.control locator. This is what control locator last logged: Found 1 controls of type &#39;sap.ui.comp.valuehelpdialog.ValueHelpDialog&#39; in page -  sap.ui.test.Opa5
+1 out of 1 controls met the matchers pipeline requirements -  sap.ui.test.pipelines.MatcherPipeline
+Found a DOM reference for the control &#39;Element sap.ui.comp.valuehelpdialog.ValueHelpDialog#gaffu.testfiori::sap.suite.ui.generic.template.ListReport.view.ListReport::FlightSet--listReportFilter-filterItemControl_BASIC-Carrid-valueHelpDialog&#39;. Executing &#39;sap.ui.test.actions.Press&#39; on the DOM element with ID &#39;gaffu.testfiori::sap.suite.ui.generic.template.ListReport.view.ListReport::FlightSet--listReportFilter-filterItemControl_BASIC-Carrid-valueHelpDialog&#39; -  sap.ui.test.actions.Press</code><br>
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step passed">
+        <p class="strong">4.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation PASSED: Expected &#39;true&#39; toBe &#39;true&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----il-value-help-del-campo-Carrid-e-aperto-SI-&amp;-tutti-i-filtri-sono-puliti-SI_3_pass_2021-10-21T18-59-18.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----il-value-help-del-campo-Carrid-e-aperto-SI-&amp;-tutti-i-filtri-sono-puliti-SI_3_pass_2021-10-21T18-59-18.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  (function init () {
+    var suiteMenuElement = document.getElementsByClassName("suites-menu")[0];
+    var specMenuElement = document.getElementsByClassName("specs-menu")[0];
+    selectSuite(0);
+  })();
+
+  function selectSuite(suiteIndex) {
+    select(document, suiteIndex, "suites-menu", "suite");
+    selectSpec(suiteIndex, 0);
+  }
+
+  function selectSpec(suiteIndex, specIndex) {
+    var parentElement = document.getElementsByClassName("specs")[suiteIndex];
+    select(parentElement, specIndex, "specs-menu", "spec");
+
+    var specElements = parentElement.getElementsByClassName("spec");
+    var specImageElements = specElements[specIndex].getElementsByTagName("img");
+    Array.prototype.forEach.call(specImageElements, function (img) {
+      img.src = img.getAttribute("data-source");
+    });
+  }
+
+  function select(parentElement, index, menuClassName, itemClassName) {
+    var menuElement = parentElement.getElementsByClassName(menuClassName)[0];
+    var menuElements = menuElement.getElementsByClassName("name");
+    Array.prototype.forEach.call(menuElements, function (el) {
+      el.classList.remove("selected");
+    });
+    menuElements[index].classList.add("selected");
+
+    var itemElements = parentElement.getElementsByClassName(itemClassName);
+    Array.prototype.forEach.call(itemElements, function (el) {
+      el.classList.add("hidden");
+    });
+    itemElements[index].classList.remove("hidden");
+  }
+</script>
+</body>
+</html>
