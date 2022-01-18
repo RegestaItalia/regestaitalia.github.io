@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .total-summary {
+      background-color: #d9ade6;
+      padding: 10px 20px;
+    }
+
+    .total-summary span {
+      padding-right: 20px;
+    }
+
+    .suites-menu {
+      width: 100%;
+      background-color: #add8e6;
+    }
+
+    .suites-menu .name {
+      display: inline-block;
+      padding: 10px;
+    }
+
+    .suites-menu .name.failure {
+      background-color: #ff634766;
+    }
+
+    .suites-menu .name.failure.selected {
+      background-color: #ff6347;      
+    }
+
+    .suites-menu .name.selected {
+      background-color: #90c9dc;
+      font-weight: 600;
+    }
+
+    .suite {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .summary {
+      padding: 10px 20px;
+    }
+
+    .summary span {
+      padding-right: 20px;
+    }
+
+    .specs {
+      display: flex;
+    }
+
+    .specs-menu {
+      align-self: flex-start;
+      width: 500px;
+      background-color: #add8e6;
+    }
+
+    .specs-menu .selected {
+      background-color: #90c9dc;
+    }
+
+    .specs .name {
+      padding: 10px;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    .name::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 10px;
+      border-radius: 50px;
+    }
+
+    .name.passed::before, .spec.passed .summary {
+      background-color: #3cb371;
+    }
+
+    .name.failed::before, .spec.failed .summary {
+      background-color: #ff6347;
+    }
+
+    .name:hover {
+      cursor: pointer;
+    }
+
+    .spec {
+      width: 100%;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #add8e6;
+    }
+
+    .step.passed {
+      background-color: #3cb37166;
+    }
+
+    .step.failed {
+      background-color: #ff634766;
+    }
+
+    .step .content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 20px;
+    }
+
+    .step .content.reverse {
+      flex-direction: column-reverse;
+    }
+
+    code {
+      width: 90%;
+      padding: 10px;
+      background-color: #ffffff;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+
+    code.log {
+      height: 50px;
+    }
+
+    code.stack {
+      height: 300px;
+    }
+
+    img {
+      width: 300px;
+      margin: 20px 0;
+    }
+
+    .strong {
+      font-weight: 600;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .comparedImages {
+      margin-top: 16px;
+      display: flex;
+    }
+
+    .comparedImages > div:not(:first-child) {
+      margin-left: 16px;
+    }
+
+    .comparedImages > div {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+<div class="total-summary">
+  <span class="strong">Total Statistics</span>
+  <span id="specsTotal">Specs Total: 2</span>
+  <span id="specsPassed">Passed: 0</span>
+  <span id="specsFailed">Failed: 2</span>
+</div>
+<div class="suites-menu">
+  
+    <div class="name failure" onClick="selectSuite(0)">G -&gt; sono nel list report</div>
+  
+</div>
+
+<div class="suite hidden">
+  <div class="summary">
+    <span class="strong">Specs</span>
+    <span>Total: 2</span>
+    <span>Passed: 0</span>
+    <span>Failed: 2</span>
+    <span>Pending: 0</span>
+    <span>Disabled: 0</span>
+    <span>Duration: 362.1 sec</span>
+  </div>
+  <div class="specs">
+    <div class="specs-menu">
+      
+      <div class="name failed" onClick="selectSpec(0, 0)">W -&gt; premo sul value help del campo Carrid  T -&gt; tutti i filtri sono puliti true</div>
+      
+      <div class="name failed" onClick="selectSpec(0, 1)">W -&gt; premo sul value help del campo Carrid  T -&gt; tutti i filtri sono puliti false</div>
+      
+    </div>
+    
+    <div class="spec failed 0 hidden">
+      <div class="summary">
+        <div class="strong">W -&gt; premo sul value help del campo Carrid  T -&gt; tutti i filtri sono puliti true</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 6</span>
+        <span>Passed: 0</span>
+        <span>Failed: 6</span>
+        <span>Duration: 121.3 sec</span>
+        
+      </div>
+      
+      
+      <div class="step failed">
+        <p class="strong">1.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation FAILED: Expected &#39;&#39;  &#39;&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-true_0_fail_2022-01-18T08-43-30.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-true_0_fail_2022-01-18T08-43-30.png"/>
+          </a>
+          
+          
+          
+          Error stack: <code class="stack">Error: Could not parse url: test/flpSandbox.html?sap-client=100#testfiori-tile
+    at BasicUrlAuthenticator.get (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/authenticator/basicUrlAuthenticator.js:35:7)
+    at Object.to (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/uiveri5.js:519:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/uiveri5.js:425:43
+    at TaskQueue.execute_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+    at TaskQueue.executeNext_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3067:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:2927:27
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:668:7
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+From: Task: &lt;anonymous&gt;
+    at Object.suiteStarted (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/uiveri5.js:395:33)
+    at dispatch (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4366:28)
+    at ReportDispatcher.suiteStarted (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4337:11)
+    at nodeStart (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:947:20)
+    at UserContext.fn (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:5323:13)
+    at attempt (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4297:26)
+    at QueueRunner.run (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4217:20)
+    at QueueRunner.execute (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4199:10)
+    at queueRunnerFactory (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:909:35)
+    at TreeProcessor.execute (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:5187:7)</code>
+        </div>
+      </div>
+      
+      
+      
+      <div class="step failed">
+        <p class="strong">2.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation FAILED: Expected &#39;&#39;  &#39;&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-true_1_fail_2022-01-18T08-45-30.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-true_1_fail_2022-01-18T08-45-30.png"/>
+          </a>
+          
+          
+          
+          Error stack: <code class="stack">JavascriptError: javascript error: UI5 dependencies are not loaded on this pageError: UI5 dependencies are not loaded on this page
+    at findByControl (eval at executeScript (:476:16), &lt;anonymous&gt;:5:13)
+    at eval (eval at executeScript (:476:16), &lt;anonymous&gt;:39:6)
+    at executeScript (&lt;anonymous&gt;:478:30)
+    at &lt;anonymous&gt;:483:24
+    at callFunction (&lt;anonymous&gt;:446:22)
+    at &lt;anonymous&gt;:460:23
+    at &lt;anonymous&gt;:461:3
+  (Session info: chrome=96.0.4664.110)
+Build info: version: &#39;4.1.1&#39;, revision: &#39;e8fcc2cecf&#39;
+System info: host: &#39;selenium&#39;, ip: &#39;172.18.0.3&#39;, os.name: &#39;Linux&#39;, os.arch: &#39;amd64&#39;, os.version: &#39;5.11.0-1025-azure&#39;, java.version: &#39;11.0.13&#39;
+Driver info: driver.version: unknown
+    at Object.checkLegacyResponse (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/error.js:546:15)
+    at parseHttpResponse (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/http.js:509:13)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/http.js:441:30
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+From: Task: WebDriver.executeScript()
+    at WebDriver.schedule (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+    at WebDriver.executeScript (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:878:16)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/by.js:191:35
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:1068:28
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:907:19
+    at ManagedPromise.invokeCallback_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:1376:14)
+    at TaskQueue.execute_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+    at TaskQueue.executeNext_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3067:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:2974:25
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:668:7
+From: Task: WebDriver.call(function)
+    at WebDriver.call (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:901:23)
+    at WebDriver.findElementsInternal_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:1068:17)
+    at WebDriver.findElements (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:1043:19)
+    at _ControlLocator.findElementsOverride (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/locators/controlLocator.js:65:17)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/protractor/built/element.js:156:40
+    at ManagedPromise.invokeCallback_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:1376:14)
+    at TaskQueue.execute_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+    at TaskQueue.executeNext_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3067:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:2927:27
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:668:7</code>
+        </div>
+      </div>
+      
+      
+      
+      <div class="step failed">
+        <p class="strong">3.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation FAILED: Expected &#39;&#39;  &#39;&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-true_2_fail_2022-01-18T08-45-30.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-true_2_fail_2022-01-18T08-45-30.png"/>
+          </a>
+          
+          
+          
+          Error stack: <code class="stack">Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
+    at Timeout._onTimeout (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4281:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)</code>
+        </div>
+      </div>
+      
+      
+      
+      <div class="step failed">
+        <p class="strong">4.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation FAILED: Expected &#39;&#39;  &#39;&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-true_3_fail_2022-01-18T08-47-31.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-true_3_fail_2022-01-18T08-47-31.png"/>
+          </a>
+          
+          
+          
+          Error stack: <code class="stack">Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
+    at Timeout._onTimeout (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4281:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)</code>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec failed 1 hidden">
+      <div class="summary">
+        <div class="strong">W -&gt; premo sul value help del campo Carrid  T -&gt; tutti i filtri sono puliti false</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 6</span>
+        <span>Passed: 0</span>
+        <span>Failed: 6</span>
+        <span>Duration: 120.7 sec</span>
+        
+      </div>
+      
+      
+      <div class="step failed">
+        <p class="strong">1.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation FAILED: Expected &#39;&#39;  &#39;&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-false_0_fail_2022-01-18T08-47-31.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-false_0_fail_2022-01-18T08-47-31.png"/>
+          </a>
+          
+          
+          
+          Error stack: <code class="stack">JavascriptError: javascript error: UI5 dependencies are not loaded on this pageError: UI5 dependencies are not loaded on this page
+    at findByControl (eval at executeScript (:476:16), &lt;anonymous&gt;:5:13)
+    at eval (eval at executeScript (:476:16), &lt;anonymous&gt;:39:6)
+    at executeScript (&lt;anonymous&gt;:478:30)
+    at &lt;anonymous&gt;:483:24
+    at callFunction (&lt;anonymous&gt;:446:22)
+    at &lt;anonymous&gt;:460:23
+    at &lt;anonymous&gt;:461:3
+  (Session info: chrome=96.0.4664.110)
+Build info: version: &#39;4.1.1&#39;, revision: &#39;e8fcc2cecf&#39;
+System info: host: &#39;selenium&#39;, ip: &#39;172.18.0.3&#39;, os.name: &#39;Linux&#39;, os.arch: &#39;amd64&#39;, os.version: &#39;5.11.0-1025-azure&#39;, java.version: &#39;11.0.13&#39;
+Driver info: driver.version: unknown
+    at Object.checkLegacyResponse (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/error.js:546:15)
+    at parseHttpResponse (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/http.js:509:13)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/http.js:441:30
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+From: Task: WebDriver.executeScript()
+    at WebDriver.schedule (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+    at WebDriver.executeScript (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:878:16)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/by.js:191:35
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:1068:28
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:907:19
+    at ManagedPromise.invokeCallback_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:1376:14)
+    at TaskQueue.execute_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+    at TaskQueue.executeNext_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3067:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:2974:25
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:668:7
+From: Task: WebDriver.call(function)
+    at WebDriver.call (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:901:23)
+    at WebDriver.findElementsInternal_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:1068:17)
+    at WebDriver.findElements (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:1043:19)
+    at _ControlLocator.findElementsOverride (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/locators/controlLocator.js:65:17)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/protractor/built/element.js:156:40
+    at ManagedPromise.invokeCallback_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:1376:14)
+    at TaskQueue.execute_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+    at TaskQueue.executeNext_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3067:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:2927:27
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:668:7</code>
+        </div>
+      </div>
+      
+      
+      
+      <div class="step failed">
+        <p class="strong">2.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation FAILED: Expected &#39;&#39;  &#39;&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-false_1_fail_2022-01-18T08-43-30.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-false_1_fail_2022-01-18T08-43-30.png"/>
+          </a>
+          
+          
+          
+          Error stack: <code class="stack">Error: Could not parse url: test/flpSandbox.html?sap-client=100#testfiori-tile
+    at BasicUrlAuthenticator.get (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/authenticator/basicUrlAuthenticator.js:35:7)
+    at Object.to (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/uiveri5.js:519:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/uiveri5.js:425:43
+    at TaskQueue.execute_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+    at TaskQueue.executeNext_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3067:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:2927:27
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:668:7
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+From: Task: &lt;anonymous&gt;
+    at Object.suiteStarted (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/uiveri5.js:395:33)
+    at dispatch (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4366:28)
+    at ReportDispatcher.suiteStarted (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4337:11)
+    at nodeStart (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:947:20)
+    at UserContext.fn (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:5323:13)
+    at attempt (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4297:26)
+    at QueueRunner.run (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4217:20)
+    at QueueRunner.execute (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4199:10)
+    at queueRunnerFactory (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:909:35)
+    at TreeProcessor.execute (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:5187:7)</code>
+        </div>
+      </div>
+      
+      
+      
+      <div class="step failed">
+        <p class="strong">3.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation FAILED: Expected &#39;&#39;  &#39;&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-false_2_fail_2022-01-18T08-49-32.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-false_2_fail_2022-01-18T08-49-32.png"/>
+          </a>
+          
+          
+          
+          Error stack: <code class="stack">JavascriptError: javascript error: UI5 dependencies are not loaded on this pageError: UI5 dependencies are not loaded on this page
+    at findByControl (eval at executeScript (:476:16), &lt;anonymous&gt;:5:13)
+    at eval (eval at executeScript (:476:16), &lt;anonymous&gt;:39:6)
+    at executeScript (&lt;anonymous&gt;:478:30)
+    at &lt;anonymous&gt;:483:24
+    at callFunction (&lt;anonymous&gt;:446:22)
+    at &lt;anonymous&gt;:460:23
+    at &lt;anonymous&gt;:461:3
+  (Session info: chrome=96.0.4664.110)
+Build info: version: &#39;4.1.1&#39;, revision: &#39;e8fcc2cecf&#39;
+System info: host: &#39;selenium&#39;, ip: &#39;172.18.0.3&#39;, os.name: &#39;Linux&#39;, os.arch: &#39;amd64&#39;, os.version: &#39;5.11.0-1025-azure&#39;, java.version: &#39;11.0.13&#39;
+Driver info: driver.version: unknown
+    at Object.checkLegacyResponse (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/error.js:546:15)
+    at parseHttpResponse (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/http.js:509:13)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/http.js:441:30
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+From: Task: WebDriver.executeScript()
+    at WebDriver.schedule (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+    at WebDriver.executeScript (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:878:16)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/by.js:191:35
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:1068:28
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:907:19
+    at ManagedPromise.invokeCallback_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:1376:14)
+    at TaskQueue.execute_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+    at TaskQueue.executeNext_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3067:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:2974:25
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:668:7
+From: Task: WebDriver.call(function)
+    at WebDriver.call (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:901:23)
+    at WebDriver.findElementsInternal_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:1068:17)
+    at WebDriver.findElements (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/webdriver.js:1043:19)
+    at _ControlLocator.findElementsOverride (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/locators/controlLocator.js:65:17)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/protractor/built/element.js:156:40
+    at ManagedPromise.invokeCallback_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:1376:14)
+    at TaskQueue.execute_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+    at TaskQueue.executeNext_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:3067:27)
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:2927:27
+    at /root/.npm/_npx/a2e375b2af4984d0/node_modules/selenium-webdriver/lib/promise.js:668:7Error
+    at ElementArrayFinder.applyAction_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/protractor/built/element.js:459:27)
+    at ElementArrayFinder.protractorModule.parent.exports.ElementArrayFinder.applyAction_ (/root/.npm/_npx/a2e375b2af4984d0/node_modules/@ui5/uiveri5/src/reporter/actionInterceptor.js:24:25)
+    at ElementArrayFinder.&lt;computed&gt; [as click] (/root/.npm/_npx/a2e375b2af4984d0/node_modules/protractor/built/element.js:91:29)
+    at ElementFinder.&lt;computed&gt; [as click] (/root/.npm/_npx/a2e375b2af4984d0/node_modules/protractor/built/element.js:831:22)
+    at Object.function [as iClickTheValueHelp] (/usr/src/uiVeri5/node_modules/@regestaitalia/e2e-ui5/uiveri5/gwt.js:34:37)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)</code>
+        </div>
+      </div>
+      
+      
+      
+      <div class="step failed">
+        <p class="strong">4.</p>
+        <div class="content ">
+          
+            
+            <div>Expectation FAILED: Expected &#39;&#39;  &#39;&#39;</div>
+            
+          
+          
+          
+          <a href="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-false_3_fail_2022-01-18T08-45-30.png" target="_blank">
+            <img data-source="G----sono-nel-list-report-W----premo-sul-value-help-del-campo-Carrid--T----tutti-i-filtri-sono-puliti-false_3_fail_2022-01-18T08-45-30.png"/>
+          </a>
+          
+          
+          
+          Error stack: <code class="stack">Error: Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.
+    at Timeout._onTimeout (/root/.npm/_npx/a2e375b2af4984d0/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4281:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)</code>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  (function init () {
+    var suiteMenuElement = document.getElementsByClassName("suites-menu")[0];
+    var specMenuElement = document.getElementsByClassName("specs-menu")[0];
+    selectSuite(0);
+  })();
+
+  function selectSuite(suiteIndex) {
+    select(document, suiteIndex, "suites-menu", "suite");
+    selectSpec(suiteIndex, 0);
+  }
+
+  function selectSpec(suiteIndex, specIndex) {
+    var parentElement = document.getElementsByClassName("specs")[suiteIndex];
+    select(parentElement, specIndex, "specs-menu", "spec");
+
+    var specElements = parentElement.getElementsByClassName("spec");
+    var specImageElements = specElements[specIndex].getElementsByTagName("img");
+    Array.prototype.forEach.call(specImageElements, function (img) {
+      img.src = img.getAttribute("data-source");
+    });
+  }
+
+  function select(parentElement, index, menuClassName, itemClassName) {
+    var menuElement = parentElement.getElementsByClassName(menuClassName)[0];
+    var menuElements = menuElement.getElementsByClassName("name");
+    Array.prototype.forEach.call(menuElements, function (el) {
+      el.classList.remove("selected");
+    });
+    menuElements[index].classList.add("selected");
+
+    var itemElements = parentElement.getElementsByClassName(itemClassName);
+    Array.prototype.forEach.call(itemElements, function (el) {
+      el.classList.add("hidden");
+    });
+    itemElements[index].classList.remove("hidden");
+  }
+</script>
+</body>
+</html>
